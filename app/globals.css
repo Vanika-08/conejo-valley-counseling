@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+/* Match the original hover behaviour on every device. */
+@custom-variant hover (&:hover);
+
+@theme inline {
+  /* Fonts */
+  --font-sans: "Muli", sans-serif;
+  --font-body: "Muli", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "beaufort-pro", Georgia, serif;
+  --font-brand: "beaufort-pro", serif;
+  --font-script: "PrintedMoments", cursive;
+
+  /* Type scale (values change per breakpoint on :root) */
+  --text-h1: var(--type-h1);
+  --text-h2: var(--type-h2);
+  --text-h3: var(--type-h3);
+  --text-h4: var(--type-h4);
+  --text-body: var(--type-body);
+  --text-small: var(--type-small);
+  --text-nav: var(--type-nav);
+  --text-button: var(--type-button);
+  --text-eyebrow: var(--type-eyebrow);
+
+  /* Clone palette */
+  --color-paper: var(--paper);
+  --color-sand: var(--sand);
+  --color-sea: var(--sea);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Redesign palette */
+  --color-ivory: #f7f2ec;
+  --color-oat: #efe6da;
+  --color-espresso: #3a322c;
+  --color-taupe: #6f655a;
+  --color-clay: #b4694c;
+  --color-clay-deep: #8f4f37;
+  --color-night: #2e2a25;
+  --color-hairline: #ddd0be;
+  --color-cream: #f3ece1;
+  --color-mist: #e9e0d4;
+
+  /* Landing page palette */
+  --color-linen: #f5f1e9;
+  --color-ink: #2f2a24;
+  --color-bronze: #9a7c57;
+  --color-stone: #6b6156;
+  --color-dune: #e3d9c8;
+
+  --radius-md: calc(var(--radius) - 2px);
+}
+
+:root {
+  --type-h1: 57.6192px;
+  --type-h2: 46.1448px;
+  --type-h3: 37.9488px;
+  --type-h4: 26.4744px;
+  --type-body: 16.6392px;
+  --type-small: 14.9753px;
+  --type-nav: 13.3608px;
+  --type-button: 12.5412px;
+  --type-eyebrow: 15px;
+  --paper: oklch(0.967 0.009 91);
+  --sand: oklch(0.884 0.029 85);
+  --sea: oklch(0.727 0.05 193);
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.295 0 0);
+  --primary: oklch(0.295 0 0);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --muted-foreground: oklch(0.43 0 0);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --border: oklch(0.91 0.004 91);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+}
+
+@media (min-width: 1001px) and (max-width: 1199px) {
+  :root {
+    --type-h1: 50.88px;
+    --type-h2: 41.22px;
+    --type-h3: 34.32px;
+    --type-h4: 24.66px;
+    --type-body: 16.38px;
+    --type-small: 14.742px;
+  }
+}
+@media (max-width: 1000px) {
+  :root {
+    --type-h1: 40.1472px;
+    --type-h2: 33.3768px;
+    --type-h3: 28.5408px;
+    --type-h4: 21.7704px;
+    --type-body: 15.9672px;
+    --type-small: 14.3705px;
+    --type-nav: 13.5px;
+    --type-button: 12.75px;
+  }
+}
+@media (max-width: 767px) {
+  :root {
+    --type-h1: 43.08px;
+    --type-h2: 35.52px;
+    --type-h3: 30.12px;
+    --type-h4: 22.56px;
+    --type-body: 16.08px;
+    --type-small: 14.472px;
+    --type-button: 13.38px;
+  }
+}
+
+@font-face {
+  font-family: "Muli";
+  src: url("/assets/body-font.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Muli";
+  src: url("/assets/body-light-font.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PrintedMoments";
+  src: url("/assets/script-font.woff") format("woff");
+  font-display: swap;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    margin: 0;
+    font-size: var(--type-body);
+    font-weight: 300;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: 0;
+  }
+  h1 {
+    font-size: var(--type-h1);
+    line-height: 1.2544;
+  }
+  h2 {
+    font-size: var(--type-h2);
+    line-height: 1.2936;
+  }
+  h3 {
+    font-size: var(--type-h3);
+    line-height: 1.3216;
+  }
+  h4 {
+    font-size: var(--type-h4);
+    line-height: 1.3608;
+  }
+  p {
+    margin: 0 0 22px;
+  }
+  a {
+    transition:
+      background-color 0.1s linear,
+      color 0.1s linear;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    a {
+      transition: none;
+    }
+  }
+}
